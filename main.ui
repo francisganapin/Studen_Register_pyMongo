@@ -614,8 +614,8 @@ font: 18pt &quot;MS Shell Dlg 2&quot;;</string>
     <widget class="QLabel" name="label_16">
      <property name="geometry">
       <rect>
-       <x>40</x>
-       <y>600</y>
+       <x>310</x>
+       <y>520</y>
        <width>111</width>
        <height>31</height>
       </rect>
@@ -630,8 +630,8 @@ font: 18pt &quot;MS Shell Dlg 2&quot;;</string>
     <widget class="QComboBox" name="school_year_update_input">
      <property name="geometry">
       <rect>
-       <x>40</x>
-       <y>640</y>
+       <x>310</x>
+       <y>550</y>
        <width>251</width>
        <height>41</height>
       </rect>
@@ -665,8 +665,8 @@ font: 14pt &quot;MS Shell Dlg 2&quot;;</string>
     <widget class="QPushButton" name="save_update_bt">
      <property name="geometry">
       <rect>
-       <x>310</x>
-       <y>640</y>
+       <x>590</x>
+       <y>550</y>
        <width>91</width>
        <height>41</height>
       </rect>
