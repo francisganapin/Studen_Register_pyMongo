@@ -60,9 +60,9 @@ class MyApp(QtWidgets.QWidget):
         """
         This will connect you to your MongoDB.
         """
-        self.mongo_link =  self.database_input.text()
-        self.client = MongoClient(self.mongo_link)
         try:
+            self.mongo_link =  self.database_input.text()
+            self.client = MongoClient(self.mongo_link)
             self.client = MongoClient(self.mongo_link)
             self.client.admin.command('ping')  # Force connection check
             self.validation_label.setStyleSheet("color: green; font: 14pt 'MS Shell Dlg 2';")
@@ -188,12 +188,13 @@ class MyApp(QtWidgets.QWidget):
             QTimer.singleShot(3000, lambda: self.validation_label_2.setText(''))  
       
     def update_data(self):
-        self.school_id_update = self.school_id_update_input.text()
-        self.school_year_update = self.school_year_update_input.currentText()
-        self.client = MongoClient(self.mongo_link)
-        self.database = self.client['school_database']
-        self.collection = self.database['students']
         try:
+            self.school_id_update = self.school_id_update_input.text()
+            self.school_year_update = self.school_year_update_input.currentText()
+            self.client = MongoClient(self.mongo_link)
+            self.database = self.client['school_database']
+            self.collection = self.database['students']
+        
             
             
             myquery = {'school_id': self.school_id_update}
