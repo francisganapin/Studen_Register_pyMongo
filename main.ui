@@ -29,7 +29,7 @@
     <string notr="true">background-color:#CAEFD1</string>
    </property>
    <property name="currentIndex">
-    <number>0</number>
+    <number>1</number>
    </property>
    <widget class="QWidget" name="tab">
     <property name="styleSheet">
@@ -154,9 +154,17 @@ font: 14pt &quot;MS Shell Dlg 2&quot;;</string>
       </rect>
      </property>
      <property name="styleSheet">
-      <string notr="true">border-radius:10px;
-background-color:white;
-font: 14pt &quot;MS Shell Dlg 2&quot;;</string>
+      <string notr="true">QPushButton {
+    background-color: #e3a393;
+    border-radius: 20px;
+    font: 14pt &quot;MS Shell Dlg 2&quot;;
+    font-size: 14pt;
+    color: white;
+}
+QPushButton:hover {
+    background-color: #2980b9;
+}
+</string>
      </property>
      <property name="text">
       <string>Save</string>
@@ -250,9 +258,17 @@ font: 14pt &quot;MS Shell Dlg 2&quot;;</string>
       </rect>
      </property>
      <property name="styleSheet">
-      <string notr="true">border-radius:10px;
-background-color:white;
-font: 14pt &quot;MS Shell Dlg 2&quot;;</string>
+      <string notr="true">QPushButton {
+    background-color: #e3a393;
+    border-radius: 20px;
+    font: 14pt &quot;MS Shell Dlg 2&quot;;
+    font-size: 14pt;
+    color: white;
+}
+QPushButton:hover {
+    background-color: #2980b9;
+}
+</string>
      </property>
      <property name="text">
       <string>Connect</string>
@@ -538,9 +554,17 @@ font: 18pt &quot;MS Shell Dlg 2&quot;;</string>
       </rect>
      </property>
      <property name="styleSheet">
-      <string notr="true">border-radius:10px;
-background-color:white;
-font: 14pt &quot;MS Shell Dlg 2&quot;;</string>
+      <string notr="true">QPushButton {
+    background-color: #e3a393;
+    border-radius: 20px;
+    font: 14pt &quot;MS Shell Dlg 2&quot;;
+    font-size: 14pt;
+    color: white;
+}
+QPushButton:hover {
+    background-color: #2980b9;
+}
+</string>
      </property>
      <property name="text">
       <string>Search</string>
@@ -556,9 +580,17 @@ font: 14pt &quot;MS Shell Dlg 2&quot;;</string>
       </rect>
      </property>
      <property name="styleSheet">
-      <string notr="true">border-radius:10px;
-background-color:white;
-font: 14pt &quot;MS Shell Dlg 2&quot;;</string>
+      <string notr="true">QPushButton {
+    background-color: #e3a393;
+    border-radius: 20px;
+    font: 14pt &quot;MS Shell Dlg 2&quot;;
+    font-size: 14pt;
+    color: white;
+}
+QPushButton:hover {
+    background-color: #2980b9;
+}
+</string>
      </property>
      <property name="text">
       <string>Refresh Query</string>
@@ -672,9 +704,17 @@ font: 14pt &quot;MS Shell Dlg 2&quot;;</string>
       </rect>
      </property>
      <property name="styleSheet">
-      <string notr="true">border-radius:10px;
-background-color:white;
-font: 14pt &quot;MS Shell Dlg 2&quot;;</string>
+      <string notr="true">QPushButton {
+    background-color: #e3a393;
+    border-radius: 20px;
+    font: 14pt &quot;MS Shell Dlg 2&quot;;
+    font-size: 14pt;
+    color: white;
+}
+QPushButton:hover {
+    background-color: #2980b9;
+}
+</string>
      </property>
      <property name="text">
       <string>Save</string>

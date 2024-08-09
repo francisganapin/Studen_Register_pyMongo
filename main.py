@@ -5,6 +5,7 @@ from pymongo import MongoClient, errors
 from datetime import datetime, timezone
 from PyQt6.QtGui import QStandardItemModel, QStandardItem
 
+from PyQt6.QtCore import QTimer
 
 class MyApp(QtWidgets.QWidget):
     def __init__(self):
@@ -184,8 +185,9 @@ class MyApp(QtWidgets.QWidget):
         except Exception as e:
             print(f"Error: {e}")
         finally:
-            self.client.close()
-    
+            self.validation_label_2.setText('please connect first to your localhost')
+            print('please connect first to your localhost')    
+      
     def update_data(self):
         self.school_id_update = self.school_id_update_input.text()
         self.school_year_update = self.school_year_update_input.currentText()
@@ -203,7 +205,9 @@ class MyApp(QtWidgets.QWidget):
         except Exception as e:
             print(f"Error: {e}")
         finally:
-            self.client.close()
+            self.validation_label_2.setText('please connect first to your localhos')
+            QTimer.singleShot(3000, lambda: self.invalid_label.setText(''))
+           
 
 
 
