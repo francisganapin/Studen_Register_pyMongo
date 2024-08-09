@@ -184,9 +184,8 @@ class MyApp(QtWidgets.QWidget):
           
         except Exception as e:
             print(f"Error: {e}")
-        finally:
-            self.validation_label_2.setText('please connect first to your localhost')
-            print('please connect first to your localhost')    
+            self.validation_label_2.setText('Please connect first to your localhost')
+            QTimer.singleShot(3000, lambda: self.validation_label_2.setText(''))  
       
     def update_data(self):
         self.school_id_update = self.school_id_update_input.text()
@@ -204,9 +203,12 @@ class MyApp(QtWidgets.QWidget):
 
         except Exception as e:
             print(f"Error: {e}")
+            self.validation_label_2.setText('Please connect first to your localhost')
+            QTimer.singleShot(3000, lambda: self.validation_label_2.setText(''))
         finally:
-            self.validation_label_2.setText('please connect first to your localhos')
-            QTimer.singleShot(3000, lambda: self.invalid_label.setText(''))
+            print('no update')
+        
+            
            
 
 
