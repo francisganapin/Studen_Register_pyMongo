@@ -21,7 +21,7 @@ class MyApp(QtWidgets.QWidget):
             self.setFixedSize(self.size())
 
             self.connect_bt.clicked.connect(self.connect_server)
-            self.save_bt.clicked.connect(self.insert_data)
+            self.save_bt.clicked.connect(self.input_function)
             self.search_bt.clicked.connect(self.search_data)
             self.refresh_query_bt.clicked.connect(self.show_database)
             self.save_update_bt.clicked.connect(self.update_data)
@@ -33,17 +33,7 @@ class MyApp(QtWidgets.QWidget):
             # get the mongo ling of your database
             self.show_database()
 
-            self.school_id = self.school_id_input.text()
-            self.first_name = self.first_name_input.text()
-            self.last_name = self.last_name_input.text()
-            self.birthday = self.birthday_input.text()
-            self.gender = self.gender_input.currentText()
-            self.school_year = self.school_year_input.currentText()
-            self.phone_number = self.phone_input.text()
-            self.address = self.address_input.text()
-            self.postal = self.postal_input.text()
-            self.city = self.city_input.text()
-
+           
 
 
 
@@ -83,8 +73,8 @@ class MyApp(QtWidgets.QWidget):
             
         except Exception as e:
             self.validation_label.setStyleSheet("color: red; font: 14pt 'MS Shell Dlg 2';")
-            self.validation_label.setText(f"An error occurred: {e}")
-            print(f"An error occurred: {e}")
+            self.validation_label.setText(f"Please connect to your local host first{e}")
+            print(f"Please connect to your local host first {e}")
 
     def create_database(self):
         '''This will create your databases in your MongoDB.'''
@@ -98,12 +88,9 @@ class MyApp(QtWidgets.QWidget):
 
     def insert_data(self):
         '''This will insert data into your MongoDB collection.'''
-        
-        # Ensure the connection and collection are properly set
-        if not hasattr(self, 'collection'):
-            print('Database or collection not initialized. Please ensure you have connected to the server and created the database.')
-            return
-        
+
+
+       
         post = {
             "school_id": self.school_id,
             "first_name": self.first_name,
@@ -136,7 +123,7 @@ class MyApp(QtWidgets.QWidget):
         
 
         except Exception as e:
-            print(f"An error occurred: {e}")
+            print(f"Please insert data  first {e}")
 
     def show_database(self):
         try:
@@ -209,9 +196,28 @@ class MyApp(QtWidgets.QWidget):
         finally:
             print('no update')
         
-            
-           
+    def input_function(self):
 
+        self.school_id = self.school_id_input.text()
+        self.first_name = self.first_name_input.text()
+        self.last_name = self.last_name_input.text()
+        self.birthday = self.birthday_input.text()
+        self.gender = self.gender_input.currentText()
+        self.school_year = self.school_year_input.currentText()
+        self.phone_number = self.phone_input.text()
+        self.address = self.address_input.text()
+        self.postal = self.postal_input.text()
+        self.city = self.city_input.text()
+
+        if (not self.school_id or not self.first_name or not self.last_name or
+            not self.birthday or not self.gender or not self.school_year or
+            not self.phone_number or not self.address or not self.postal or not
+            self.city):
+            self.validation_label.setStyleSheet("color: red; font: 14pt 'MS Shell Dlg 2';")
+            self.validation_label.setText(f"Please Complete your Data")
+            return
+
+        self.insert_data()
 
 
 if __name__ == "__main__":

@@ -29,7 +29,7 @@
     <string notr="true">background-color:#CAEFD1</string>
    </property>
    <property name="currentIndex">
-    <number>1</number>
+    <number>0</number>
    </property>
    <widget class="QWidget" name="tab">
     <property name="styleSheet">
@@ -503,9 +503,9 @@ font: 14pt &quot;MS Shell Dlg 2&quot;;</string>
      <property name="geometry">
       <rect>
        <x>40</x>
-       <y>30</y>
+       <y>60</y>
        <width>751</width>
-       <height>311</height>
+       <height>281</height>
       </rect>
      </property>
      <property name="styleSheet">
@@ -518,7 +518,7 @@ background-color:white;</string>
       <rect>
        <x>40</x>
        <y>420</y>
-       <width>241</width>
+       <width>211</width>
        <height>41</height>
       </rect>
      </property>
@@ -547,8 +547,8 @@ font: 18pt &quot;MS Shell Dlg 2&quot;;</string>
     <widget class="QPushButton" name="search_bt">
      <property name="geometry">
       <rect>
-       <x>310</x>
-       <y>420</y>
+       <x>40</x>
+       <y>480</y>
        <width>91</width>
        <height>41</height>
       </rect>
@@ -573,8 +573,8 @@ QPushButton:hover {
     <widget class="QPushButton" name="refresh_query_bt">
      <property name="geometry">
       <rect>
-       <x>430</x>
-       <y>420</y>
+       <x>640</x>
+       <y>10</y>
        <width>151</width>
        <height>41</height>
       </rect>
@@ -599,8 +599,8 @@ QPushButton:hover {
     <widget class="QLineEdit" name="school_id_update_input">
      <property name="geometry">
       <rect>
-       <x>40</x>
-       <y>550</y>
+       <x>530</x>
+       <y>420</y>
        <width>241</width>
        <height>41</height>
       </rect>
@@ -614,8 +614,8 @@ font: 18pt &quot;MS Shell Dlg 2&quot;;</string>
     <widget class="QLabel" name="label_14">
      <property name="geometry">
       <rect>
-       <x>40</x>
-       <y>480</y>
+       <x>530</x>
+       <y>370</y>
        <width>241</width>
        <height>31</height>
       </rect>
@@ -624,47 +624,15 @@ font: 18pt &quot;MS Shell Dlg 2&quot;;</string>
       <string notr="true">font: 18pt &quot;Segoe UI&quot;;</string>
      </property>
      <property name="text">
-      <string>Update Student Year</string>
-     </property>
-    </widget>
-    <widget class="QLabel" name="label_15">
-     <property name="geometry">
-      <rect>
-       <x>40</x>
-       <y>520</y>
-       <width>31</width>
-       <height>31</height>
-      </rect>
-     </property>
-     <property name="styleSheet">
-      <string notr="true">font: 12pt &quot;Segoe UI&quot;;</string>
-     </property>
-     <property name="text">
-      <string>Id</string>
-     </property>
-    </widget>
-    <widget class="QLabel" name="label_16">
-     <property name="geometry">
-      <rect>
-       <x>310</x>
-       <y>520</y>
-       <width>111</width>
-       <height>31</height>
-      </rect>
-     </property>
-     <property name="styleSheet">
-      <string notr="true">font: 12pt &quot;Segoe UI&quot;;</string>
-     </property>
-     <property name="text">
-      <string>School Year</string>
+      <string>Update Student Year by Id</string>
      </property>
     </widget>
     <widget class="QComboBox" name="school_year_update_input">
      <property name="geometry">
       <rect>
-       <x>310</x>
-       <y>550</y>
-       <width>251</width>
+       <x>530</x>
+       <y>480</y>
+       <width>241</width>
        <height>41</height>
       </rect>
      </property>
@@ -697,8 +665,8 @@ font: 14pt &quot;MS Shell Dlg 2&quot;;</string>
     <widget class="QPushButton" name="save_update_bt">
      <property name="geometry">
       <rect>
-       <x>590</x>
-       <y>550</y>
+       <x>530</x>
+       <y>540</y>
        <width>91</width>
        <height>41</height>
       </rect>
