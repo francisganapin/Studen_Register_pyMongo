@@ -29,7 +29,7 @@
     <string notr="true">background-color:#CAEFD1</string>
    </property>
    <property name="currentIndex">
-    <number>0</number>
+    <number>1</number>
    </property>
    <widget class="QWidget" name="tab">
     <property name="styleSheet">
@@ -528,27 +528,11 @@ background-color:white;
 font: 18pt &quot;MS Shell Dlg 2&quot;;</string>
      </property>
     </widget>
-    <widget class="QLabel" name="label_13">
-     <property name="geometry">
-      <rect>
-       <x>40</x>
-       <y>370</y>
-       <width>241</width>
-       <height>31</height>
-      </rect>
-     </property>
-     <property name="styleSheet">
-      <string notr="true">font: 18pt &quot;Segoe UI&quot;;</string>
-     </property>
-     <property name="text">
-      <string>Search Student</string>
-     </property>
-    </widget>
     <widget class="QPushButton" name="search_bt">
      <property name="geometry">
       <rect>
        <x>40</x>
-       <y>480</y>
+       <y>540</y>
        <width>91</width>
        <height>41</height>
       </rect>
@@ -609,22 +593,6 @@ QPushButton:hover {
       <string notr="true">border-radius:10px;
 background-color:white;
 font: 18pt &quot;MS Shell Dlg 2&quot;;</string>
-     </property>
-    </widget>
-    <widget class="QLabel" name="label_14">
-     <property name="geometry">
-      <rect>
-       <x>530</x>
-       <y>370</y>
-       <width>241</width>
-       <height>31</height>
-      </rect>
-     </property>
-     <property name="styleSheet">
-      <string notr="true">font: 18pt &quot;Segoe UI&quot;;</string>
-     </property>
-     <property name="text">
-      <string>Update Student Year by Id</string>
      </property>
     </widget>
     <widget class="QComboBox" name="school_year_update_input">
@@ -705,6 +673,130 @@ QPushButton:hover {
       <string/>
      </property>
     </widget>
+    <widget class="QLineEdit" name="school_id_update_input_2">
+     <property name="geometry">
+      <rect>
+       <x>270</x>
+       <y>420</y>
+       <width>241</width>
+       <height>41</height>
+      </rect>
+     </property>
+     <property name="styleSheet">
+      <string notr="true">border-radius:10px;
+background-color:white;
+font: 18pt &quot;MS Shell Dlg 2&quot;;</string>
+     </property>
+    </widget>
+    <widget class="QLineEdit" name="school_date_search">
+     <property name="geometry">
+      <rect>
+       <x>40</x>
+       <y>480</y>
+       <width>211</width>
+       <height>41</height>
+      </rect>
+     </property>
+     <property name="styleSheet">
+      <string notr="true">border-radius:10px;
+background-color:white;
+font: 18pt &quot;MS Shell Dlg 2&quot;;</string>
+     </property>
+    </widget>
+    <widget class="QLineEdit" name="school_id_update_input_3">
+     <property name="geometry">
+      <rect>
+       <x>270</x>
+       <y>480</y>
+       <width>241</width>
+       <height>41</height>
+      </rect>
+     </property>
+     <property name="styleSheet">
+      <string notr="true">border-radius:10px;
+background-color:white;
+font: 18pt &quot;MS Shell Dlg 2&quot;;</string>
+     </property>
+    </widget>
+    <widget class="QPushButton" name="search_bt_2">
+     <property name="geometry">
+      <rect>
+       <x>270</x>
+       <y>540</y>
+       <width>91</width>
+       <height>41</height>
+      </rect>
+     </property>
+     <property name="styleSheet">
+      <string notr="true">QPushButton {
+    background-color: #e3a393;
+    border-radius: 20px;
+    font: 14pt &quot;MS Shell Dlg 2&quot;;
+    font-size: 14pt;
+    color: white;
+}
+QPushButton:hover {
+    background-color: #2980b9;
+}
+</string>
+     </property>
+     <property name="text">
+      <string>Search</string>
+     </property>
+    </widget>
+    <widget class="QLabel" name="label_13">
+     <property name="geometry">
+      <rect>
+       <x>40</x>
+       <y>370</y>
+       <width>241</width>
+       <height>31</height>
+      </rect>
+     </property>
+     <property name="styleSheet">
+      <string notr="true">font: 18pt &quot;Segoe UI&quot;;</string>
+     </property>
+     <property name="text">
+      <string>Search Student</string>
+     </property>
+    </widget>
+    <widget class="QLabel" name="label_14">
+     <property name="geometry">
+      <rect>
+       <x>280</x>
+       <y>370</y>
+       <width>241</width>
+       <height>31</height>
+      </rect>
+     </property>
+     <property name="styleSheet">
+      <string notr="true">font: 18pt &quot;Segoe UI&quot;;</string>
+     </property>
+     <property name="text">
+      <string>Delete Student</string>
+     </property>
+    </widget>
+    <widget class="QLabel" name="label_15">
+     <property name="geometry">
+      <rect>
+       <x>540</x>
+       <y>370</y>
+       <width>241</width>
+       <height>31</height>
+      </rect>
+     </property>
+     <property name="styleSheet">
+      <string notr="true">font: 18pt &quot;Segoe UI&quot;;</string>
+     </property>
+     <property name="text">
+      <string>Update Student Data</string>
+     </property>
+    </widget>
+   </widget>
+   <widget class="QWidget" name="tab_3">
+    <attribute name="title">
+     <string>Payment</string>
+    </attribute>
    </widget>
   </widget>
  </widget>

@@ -3,8 +3,8 @@ from PyQt6 import QtWidgets, uic
 from PyQt6.QtWidgets import QApplication
 from pymongo import MongoClient, errors
 from datetime import datetime, timezone
-from PyQt6.QtGui import QStandardItemModel, QStandardItem
-
+from PyQt6.QtGui import QStandardItemModel, QStandardItem 
+from PyQt6.QtWidgets import QApplication,  QLineEdit
 from PyQt6.QtCore import QTimer
 
 class MyApp(QtWidgets.QWidget):
@@ -23,6 +23,8 @@ class MyApp(QtWidgets.QWidget):
             self.connect_bt.clicked.connect(self.connect_server)
             self.save_bt.clicked.connect(self.input_function)
             self.search_bt.clicked.connect(self.search_data)
+            self.search_bt.clicked.connect(self.search_data_2)
+
             self.refresh_query_bt.clicked.connect(self.show_database)
             self.save_update_bt.clicked.connect(self.update_data)
 
@@ -36,6 +38,11 @@ class MyApp(QtWidgets.QWidget):
            
 
 
+            self.school_school_date_search = self.findChild(QLineEdit, 'school_date_search')
+            self.school_id_search = self.findChild(QLineEdit, 'school_id_search')
+            # Initialize QLineEdit and set placeholder text
+            self.school_id_search.setPlaceholderText("Enter School Id")
+            self.school_school_date_search.setPlaceholderText("School Date")
 
 
 
@@ -152,27 +159,73 @@ class MyApp(QtWidgets.QWidget):
 
 
     def search_data(self):
-
+        # Get the search input from the QLineEdit
+        
         self.school_id = self.school_id_search.text()
+
         try:
+            # Connect to the MongoDB client using the provided link
             self.client = MongoClient(self.mongo_link)
+            # Access the 'school_database' and 'students' collection
             self.database = self.client['school_database']
             self.collection = self.database['students']
 
-            self.model_1.removeRows(0, self.model_1.rowCount())  # Clear the existing data in the model
+            # Clear the existing data in the model
+            self.model_1.removeRows(0, self.model_1.rowCount())
 
-            self.fetched_data = list(self.rows)  # Convert the cursor result into a list
+            # Fetch data based on the school_id or other criteria the other one is excluding
+            self.rows = self.collection.find({"school_id": self.school_id}, {"_id": 0,'address': 0,'date_created':0})
+
+            # Convert the cursor result into a list
+            self.fetched_data = list(self.rows)
 
             # Iterate over each document in the fetched data
             for row_data in self.fetched_data:
                 # Create a list of QStandardItem objects from the values of the current document
                 items = [QStandardItem(str(data)) for data in row_data.values()]
                 self.model_1.appendRow(items)  # Append the items as a new row in the model
-          
+
         except Exception as e:
+            # Handle any exceptions that occur
             print(f"Error: {e}")
             self.validation_label_2.setText('Please connect first to your localhost')
-            QTimer.singleShot(3000, lambda: self.validation_label_2.setText(''))  
+            QTimer.singleShot(3000, lambda: self.validation_label_2.setText(''))
+
+
+
+    def search_data_2(self):
+        # Get the search input from the QLineEdit
+        
+        self.school_school_date_search_id = self.school_school_date_search.text()
+
+        try:
+            # Connect to the MongoDB client using the provided link
+            self.client = MongoClient(self.mongo_link)
+            # Access the 'school_database' and 'students' collection
+            self.database = self.client['school_database']
+            self.collection = self.database['students']
+
+            # Clear the existing data in the model
+            self.model_1.removeRows(0, self.model_1.rowCount())
+
+            # Fetch data based on the school_id or other criteria the other one is excluding
+            self.rows = self.collection.find({"school_year": self.school_school_date_search_id}, {"_id": 0,'address': 0,'date_created':0})
+
+            # Convert the cursor result into a list
+            self.fetched_data = list(self.rows)
+
+            # Iterate over each document in the fetched data
+            for row_data in self.fetched_data:
+                # Create a list of QStandardItem objects from the values of the current document
+                items = [QStandardItem(str(data)) for data in row_data.values()]
+                self.model_1.appendRow(items)  # Append the items as a new row in the model
+
+        except Exception as e:
+            # Handle any exceptions that occur
+            print(f"Error: {e}")
+            self.validation_label_2.setText('Please connect first to your localhost')
+            QTimer.singleShot(3000, lambda: self.validation_label_2.setText(''))
+
       
     def update_data(self):
         try:
