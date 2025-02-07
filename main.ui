@@ -29,7 +29,7 @@
     <string notr="true">background-color:#CAEFD1</string>
    </property>
    <property name="currentIndex">
-    <number>1</number>
+    <number>0</number>
    </property>
    <widget class="QWidget" name="tab">
     <property name="styleSheet">
@@ -673,7 +673,7 @@ QPushButton:hover {
       <string/>
      </property>
     </widget>
-    <widget class="QLineEdit" name="school_id_update_input_2">
+    <widget class="QLineEdit" name="school_id_delete_input">
      <property name="geometry">
       <rect>
        <x>270</x>
@@ -703,22 +703,7 @@ background-color:white;
 font: 18pt &quot;MS Shell Dlg 2&quot;;</string>
      </property>
     </widget>
-    <widget class="QLineEdit" name="school_id_update_input_3">
-     <property name="geometry">
-      <rect>
-       <x>270</x>
-       <y>480</y>
-       <width>241</width>
-       <height>41</height>
-      </rect>
-     </property>
-     <property name="styleSheet">
-      <string notr="true">border-radius:10px;
-background-color:white;
-font: 18pt &quot;MS Shell Dlg 2&quot;;</string>
-     </property>
-    </widget>
-    <widget class="QPushButton" name="search_bt_2">
+    <widget class="QPushButton" name="delete_bt">
      <property name="geometry">
       <rect>
        <x>270</x>
@@ -741,7 +726,7 @@ QPushButton:hover {
 </string>
      </property>
      <property name="text">
-      <string>Search</string>
+      <string>Delete</string>
      </property>
     </widget>
     <widget class="QLabel" name="label_13">

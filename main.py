@@ -6,6 +6,8 @@ from datetime import datetime, timezone
 from PyQt6.QtGui import QStandardItemModel, QStandardItem 
 from PyQt6.QtWidgets import QApplication,  QLineEdit
 from PyQt6.QtCore import QTimer
+from connect_mongo import Pymongo_databases
+
 
 class MyApp(QtWidgets.QWidget):
     def __init__(self):
@@ -15,15 +17,20 @@ class MyApp(QtWidgets.QWidget):
             uic.loadUi('main.ui', self)
 
             
-
+            self.setWindowTitle('Register Student')
 
             # Set fixed size based on loaded UI
             self.setFixedSize(self.size())
 
-            self.connect_bt.clicked.connect(self.connect_server)
+            # Pass `self` to Pymongo_databases
+            self.pogi = Pymongo_databases(self)
+
+            self.connect_bt.clicked.connect(self.pogi.connect_server)
+
             self.save_bt.clicked.connect(self.input_function)
             self.search_bt.clicked.connect(self.search_data)
             self.search_bt.clicked.connect(self.search_data_2)
+            self.delete_bt.clicked.connect(self.delete_data)
 
             self.refresh_query_bt.clicked.connect(self.show_database)
             self.save_update_bt.clicked.connect(self.update_data)
@@ -37,12 +44,13 @@ class MyApp(QtWidgets.QWidget):
 
            
 
-
+            self.school_id_delete_input = self.findChild(QLineEdit,'school_id_delete_input')
             self.school_school_date_search = self.findChild(QLineEdit, 'school_date_search')
             self.school_id_search = self.findChild(QLineEdit, 'school_id_search')
             # Initialize QLineEdit and set placeholder text
             self.school_id_search.setPlaceholderText("Enter School Id")
             self.school_school_date_search.setPlaceholderText("School Date")
+            self.school_id_delete_input.setPlaceholderText('Delete Id')
 
 
 
@@ -53,35 +61,7 @@ class MyApp(QtWidgets.QWidget):
 
 
 
-    def connect_server(self):
-        """
-        This will connect you to your MongoDB.
-        """
-        try:
-            self.mongo_link =  self.database_input.text()
-            self.client = MongoClient(self.mongo_link)
-            self.client = MongoClient(self.mongo_link)
-            self.client.admin.command('ping')  # Force connection check
-            self.validation_label.setStyleSheet("color: green; font: 14pt 'MS Shell Dlg 2';")
-            self.validation_label.setText(f"Connected to MongoDB server at {self.mongo_link}")
-            print(f"Connected to MongoDB server at {self.mongo_link}")
-            self.create_database()
-            self.show_database()
-
-        except errors.ServerSelectionTimeoutError:
-            self.validation_label.setStyleSheet("color: red; font: 14pt 'MS Shell Dlg 2';")
-            self.validation_label.setText(f"Failed to connect to MongoDB server at {self.mongo_link}")
-            print(f"Failed to connect to MongoDB server at {self.mongo_link}")
-
-        except ValueError as e1:
-            self.validation_label.setStyleSheet("color: red; font: 14pt 'MS Shell Dlg 2';")
-            self.validation_label.setText(f"Invalid MongoDB URI: {e1}")
-            print(f"ValueError: {e1}")
-            
-        except Exception as e:
-            self.validation_label.setStyleSheet("color: red; font: 14pt 'MS Shell Dlg 2';")
-            self.validation_label.setText(f"Please connect to your local host first{e}")
-            print(f"Please connect to your local host first {e}")
+    
 
     def create_database(self):
         '''This will create your databases in your MongoDB.'''
@@ -240,6 +220,25 @@ class MyApp(QtWidgets.QWidget):
             myquery = {'school_id': self.school_id_update}
             new_value = {'$set': {'school_year': self.school_year_update}}
             self.collection.update_one(myquery, new_value)
+            self.validation_label_2.setText(f'school id of:{self.school_id_update} was updated into{self.school_year_update}')
+
+        except Exception as e:
+            print(f"Error: {e}")
+            self.validation_label_2.setText('Please connect first to your localhost')
+            QTimer.singleShot(3000, lambda: self.validation_label_2.setText(''))
+        finally:
+            print('no update')
+
+
+    def delete_data(self):
+        try: 
+            self.school_id_delete = self.school_id_delete_input.text()
+            self.client = MongoClient(self.mongo_link)
+            self.database = self.client['school_database']
+            self.collection = self.database['students']
+            
+            myquery = {'school_id':self.school_id_delete}
+            self.collection.delete_one(myquery)
             self.validation_label_2.setText(f'school id of:{self.school_id_update} was updated into{self.school_year_update}')
 
         except Exception as e:
